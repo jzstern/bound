@@ -9,7 +9,7 @@ module.exports = function(deployer) {
     // ETHContinuousToken
     // Deploy the continuous token contract
     //deployer.deploy(ERC20ContinuousToken, "ArtistToken", "ART", 1, 500, 0.3);
-    deployer.deploy(ETHContinuousToken, "ArtistToken", "ART", 18, 500, 300000);
+    deployer.deploy(ETHContinuousToken, "ArtistToken", "ART", 18, 500, 330000); // 10000 = 1%
 }
 
 /**
