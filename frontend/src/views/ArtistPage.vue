@@ -3,7 +3,7 @@
     <div id="description">
       <img id="artist-img" :src="imgUrl" />
       <h2>{{ artistName }}</h2>
-      <h5>Price: {{ amount }} ETH</h5>
+      <h5>Price: {{ price }} ETH</h5>
       <ul id="offers">
         <li>cool offer #1</li>
         <li>cool offer #2</li>
