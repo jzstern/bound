@@ -1,7 +1,7 @@
 <template>
   <div id="navbar">
     <router-link to="/">
-      <p id="logo">Bound ##</p>
+      <p id="logo">Bound</p>
     </router-link>
     <router-link to="/artist">Artist</router-link>
     <Wallet />

@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       artistName: "Kaytranada",
-      amount: ".01",
+      price: ".01",
       contractAddress: "0xeb54D707252Ee9E26E6a4073680Bf71154Ce7Ab5",
       imgUrl:
         "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3.amazonaws.com%2Ffactmag-images%2Fwp-content%2Fuploads%2F2016%2F05%2F02131614%2FKaytranada_photoCarysHuws2a-970x550.jpg&f=1&nofb=1",
@@ -44,12 +44,11 @@ export default {
   },
   methods: {
     buy() {
-      // alert("buying that good good");
       web3.eth.sendTransaction({
         // From address will automatically be replaced by the address of current user
         from: "0x0000000000000000000000000000000000000000",
         to: this.contractAddress,
-        value: web3.utils.toWei(this.amount, "ether")
+        value: web3.utils.toWei(this.price, "ether")
       });
     },
     sell() {
