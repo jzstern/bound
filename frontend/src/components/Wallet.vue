@@ -7,17 +7,29 @@
 </template>
 
 <script>
+import { web3Provider as web3 } from "../web3Provider.js";
+import store from "../store/index.js";
+
 export default {
   name: "Wallet",
-  data() {
-    return {
-      address: "Connect Wallet"
-    };
+  computed: {
+    address() {
+      return this.$store.state.user.walletAddress;
+    }
   },
   methods: {
-    connectWallet() {
-      alert("connecting wallet");
-      this.address = "0xc43r - 5gtd";
+    connectWallet: async function() {
+      // TODO - allow MetaMask connection?
+      if (this.address == "Connect Wallet") {
+        await web3.currentProvider.enable();
+        web3.eth.getAccounts((error, accounts) => {
+          if (error) throw error;
+        });
+        web3.eth.getCoinbase((error, coinbase) => {
+          if (error) throw error;
+          store.commit("setUserWalletAddress", coinbase);
+        });
+      }
     }
   }
 };
