@@ -4,11 +4,10 @@
       <img id="artist-img" :src="imgUrl" />
       <h2>{{ artistName }}</h2>
       <ul id="offers">
-        <!-- <li :v-for="offer in offers">{{ offer.message }}</li> -->
-        <li>offer 1</li>
-        <li>offer 2</li>
-        <li>offer 3</li>
-        <li>offer 4</li>
+        <li>cool offer #1</li>
+        <li>cool offer #2</li>
+        <li>cool offer #3</li>
+        <!-- <li v-for="(offer, index) in offers">{{ offer.message }} - {{ index }}    </li> -->
       </ul>
     </div>
 
@@ -28,24 +27,12 @@ export default {
     return {
       artistName: "Kaytranada",
       imgUrl:
-        "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3.amazonaws.com%2Ffactmag-images%2Fwp-content%2Fuploads%2F2016%2F05%2F02131614%2FKaytranada_photoCarysHuws2a-970x550.jpg&f=1&nofb=1"
-      // offers: [
-      //   {
-      //     message:
-      //       "Exclusive access to “BUBBA” behind-the-scenes videos and production tutorials Receive early access to unrealeased music and videos"
-      //   },
-      //   {
-      //     message:
-      //       "A chance to win an 1 on 1 production session with the man himself"
-      //   },
-      //   {
-      //     message:
-      //       "Two free VIP concert tickets for every year that you hold the token"
-      //   },
-      //   {
-      //     message: "Submit a monthly question to Kaytranada."
-      //   }
-      // ]
+        "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3.amazonaws.com%2Ffactmag-images%2Fwp-content%2Fuploads%2F2016%2F05%2F02131614%2FKaytranada_photoCarysHuws2a-970x550.jpg&f=1&nofb=1",
+      offers: [
+        {
+          message: "Dope prize #1"
+        }
+      ]
     };
   },
   methods: {
