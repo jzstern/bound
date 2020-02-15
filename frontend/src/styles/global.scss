@@ -1,0 +1,35 @@
+%center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translateY(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+%quick-ease {
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+}
+
+%medium-ease {
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+}
+
+%hover {
+  @extend %quick-ease;
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+}
+
+%non-selectable {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
