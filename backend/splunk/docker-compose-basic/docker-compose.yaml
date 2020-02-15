@@ -32,7 +32,7 @@ services:
             #- ETH_RPC_URL=https://rinkeby.infura.io/v3/e6f6aa0719e64da1bc6d8be352171860
             #- NETWORK_NAME=rinkeby
             # local
-            - ETH_RPC_URL=http://ganache:8545
+            - http://127.0.0.1:7545
             - NETWORK_NAME=development
             - START_AT_BLOCK=latest
             - SPLUNK_HEC_URL=https://splunk:8088
@@ -47,7 +47,3 @@ services:
             - ./:/app
         depends_on:
             - splunk
-    ganache:
-        image: trufflesuite/ganache-cli
-        ports:
-            - 8545:8545

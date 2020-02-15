@@ -3253,16 +3253,10 @@
       "links": {},
       "address": "0x2b195763BD0409c7DD4887177f3EEfF9ca5321DC",
       "transactionHash": "0x1f40e404397b8bc25a0175ffe5d16ff70d76a74db6ab7ad8de7650527b57210b"
-    },
-    "1581803785253": {
-      "events": {},
-      "links": {},
-      "address": "0x59C39CEF9DffB68b534d0FAA32e843f2D462e0CA",
-      "transactionHash": "0x01e98a4bf99622b2de24c1fe666f9d9e3a3205afb658937738839bb00af08747"
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2020-02-15T21:58:17.559Z",
+  "updatedAt": "2020-02-15T21:54:00.117Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {
