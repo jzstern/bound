@@ -2,8 +2,8 @@ module.exports = {
   networks: {
     development: { // Ganache
       host: '127.0.0.1',
-      port: 8545,
-      gas: 6000000,
+      port: 7545, // 8545, // CLI
+      //gas: 6000000,
       network_id: '*', // 5777
     },
     rinkeby: {
@@ -16,6 +16,12 @@ module.exports = {
   compilers: {
     solc: {
       version: '^0.5.0',
+      settings: {
+        optimizer: {
+          enabled: true,
+          runs: 1500
+        }
+      }
     },
   },
 };

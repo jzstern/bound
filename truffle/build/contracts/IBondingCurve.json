@@ -45,9 +45,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.2;\n\n\ninterface IBondingCurve {\n    /**\n    * @dev Given a reserve token amount, calculates the amount of continuous tokens returned.\n    */\n    function getContinuousMintReward(uint _reserveTokenAmount) external view returns (uint);\n\n    /**\n    * @dev Given a continuous token amount, calculates the amount of reserve tokens returned.\n    */  \n    function getContinuousBurnRefund(uint _continuousTokenAmount) external view returns (uint);\n}\n",
-  "sourcePath": "/Users/feewet/dev/ethdenver/solidity/loftbound/contracts/interfaces/IBondingCurve.sol",
+  "sourcePath": "/Users/feewet/dev/ethdenver/solidity/bound/truffle/contracts/interfaces/IBondingCurve.sol",
   "ast": {
-    "absolutePath": "/Users/feewet/dev/ethdenver/solidity/loftbound/contracts/interfaces/IBondingCurve.sol",
+    "absolutePath": "/Users/feewet/dev/ethdenver/solidity/bound/truffle/contracts/interfaces/IBondingCurve.sol",
     "exportedSymbols": {
       "IBondingCurve": [
         139
@@ -250,7 +250,7 @@
     "src": "0:464:2"
   },
   "legacyAST": {
-    "absolutePath": "/Users/feewet/dev/ethdenver/solidity/loftbound/contracts/interfaces/IBondingCurve.sol",
+    "absolutePath": "/Users/feewet/dev/ethdenver/solidity/bound/truffle/contracts/interfaces/IBondingCurve.sol",
     "exportedSymbols": {
       "IBondingCurve": [
         139
@@ -458,7 +458,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2020-02-15T09:27:54.742Z",
+  "updatedAt": "2020-02-15T16:42:39.709Z",
   "devdoc": {
     "methods": {
       "getContinuousBurnRefund(uint256)": {
