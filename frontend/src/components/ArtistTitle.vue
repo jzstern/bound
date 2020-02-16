@@ -5,10 +5,7 @@
       <img src="../assets/verfied.svg" />
       <p>Official artist page</p>
     </div>
-    <div
-      class="tokenOwnership"
-      :class="{ own: prizesUnlocked, dontOwn: !prizesUnlocked }"
-    >
+    <div class="tokenOwnership" :class="{ own: prizesUnlocked, dontOwn: !prizesUnlocked }">
       {{ ownershipText }}
       <!-- {{ prizesUnlocked }} -->
     </div>
@@ -82,9 +79,7 @@ export default {
   font-family: "syne";
   text-align: left;
   margin: auto;
-  margin-bottom: 50px;
-  margin-top: 25px;
+  margin-top: 24px;
   max-width: 1130px;
-  padding: 24px;
 }
 </style>
