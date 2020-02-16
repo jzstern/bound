@@ -3,15 +3,33 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-body"></div>
-        <div id="audioPlayer">
-          <img id="albumArt" src="../assets/KaytranadaAlbumArt.jpg" />
-          <img id="play" src="../assets/playIcon.svg" />
-          <img id="pause" src="../assets/pauseIcon.svg" />
 
-          <audio id="song">
-            <source src="../assets/Kaytranada10%.mp3" type="audio/mpeg" />
-          </audio>
+        <div
+          id="album-container"
+          @mouseover="hover = true"
+          @mouseleave="hover = false"
+        >
+          <img id="albumArt" src="../assets/KaytranadaAlbumArt.jpg" />
+          <img
+            id="play"
+            @click="play"
+            v-show="!playing && hover"
+            src="../assets/playIcon.svg"
+          />
+          <img
+            id="pause"
+            @click="pause"
+            v-show="playing && hover"
+            src="../assets/pauseIcon.svg"
+          />
         </div>
+
+        <audio
+          id="song"
+          ref="KaytraSong"
+          src="../assets/Kaytranada10.mp3"
+        ></audio>
+
         <div
           class="btn"
           style="background-color:#398557; width:100%; margin:0; margin-bottom:10px; margin-top:10px;"
@@ -33,27 +51,53 @@
 
 <script>
 export default {
-  name: "RedeemPrize"
+  name: "RedeemPrize",
+  data() {
+    return {
+      playing: false,
+      hover: false
+    };
+  },
+  methods: {
+    play() {
+      this.$refs.KaytraSong.play();
+      this.playing = !this.playing;
+    },
+    pause() {
+      this.$refs.KaytraSong.pause();
+      this.playing = !this.playing;
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../styles/global.scss";
 
-#albumArt {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.audioPlayer {
+#album-container {
   position: relative;
   width: 100%;
   border-radius: 10px;
 }
 
+#albumArt {
+  // position: a;
+  width: 100%;
+  border-radius: 10px;
+}
+
 #play {
-  @extend %center;
+  position: absolute;
   height: 50px;
+  padding: 150px;
+  @extend %center;
+}
+
+#pause {
+  position: absolute;
+  height: 50px;
+  padding: 150px;
+  @extend %center;
 }
 
 .btn-cancel {
