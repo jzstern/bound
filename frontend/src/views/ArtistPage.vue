@@ -106,7 +106,8 @@ export default {
       sell: false,
       imageSrc: "",
       rewards: [],
-      prizesUnlocked: false
+      prizesUnlocked: false,
+      totalTokenSupply: 0
     };
   },
   methods: {
@@ -120,6 +121,7 @@ export default {
     },
     updateContract(contractData) {
       console.log(contractData);
+      this.totalTokenSupply = contractData.artistTokenSupply;
     }
   },
   mounted: async function() {
