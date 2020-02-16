@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import { web3Provider as web3 } from "../web3Provider.js";
+
 export default {
   name: "Buy",
   methods: {
