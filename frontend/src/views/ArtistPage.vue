@@ -33,14 +33,16 @@
         <h3 style="margin-left: 25px">Price</h3>
         <div id="curve-card">
           <div id="graph-section">
-            <img class="graph" src="../assets/graph.svg" />
+            <ChartsMock />
+            <!-- <ChartsMock :total-token-supply="totalTokenSupply" /> -->
+            <!-- <img class="graph" src="../assets/graph.svg" /> -->
           </div>
 
           <div id="trade-section">
             <h5>current value</h5>
             <div id="price-and-token">
               <h1>${{ tokenPriceUsd }}</h1>
-              <img id="token-number" src="../assets/tokenNumber.svg" />
+              <!-- <img id="token-number" src="../assets/tokenNumber.svg" /> -->
             </div>
             <div id="trade-buttons">
               <div
@@ -88,7 +90,7 @@
 import store from "../store/index.js";
 import Fortmatic from "fortmatic";
 import Web3 from "web3";
-import ChartsContainer from "../components/ChartsContainer.vue";
+import ChartsMock from "../components/ChartsMock.vue";
 // import { web3Provider as web3 } from "../web3Provider.js";
 // import { fm as provider } from "../web3Provider.js";
 // import Box from "../web3Provider.js";
@@ -106,7 +108,7 @@ export default {
   name: "ArtistPage",
   components: {
     Buy,
-    ChartsContainer,
+    ChartsMock,
     Sell,
     Prizes,
     ArtistTitle,
