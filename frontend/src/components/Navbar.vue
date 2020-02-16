@@ -1,9 +1,8 @@
 <template>
   <div id="navbar">
     <router-link to="/">
-      <p id="logo">Bound ##</p>
+      <img src="../assets/boundLogo.svg" id="logo" />
     </router-link>
-    <router-link to="/artist">Artist</router-link>
     <Wallet />
   </div>
 </template>
@@ -28,13 +27,16 @@ export default {
 }
 
 #navbar {
+  a {
+    text-decoration: none;
+  }
   width: 100%;
-  height: 60px;
+  height: 65px;
   position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   &.router-link-exact-active {
     color: #42b983;
   }
