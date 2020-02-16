@@ -3123,7 +3123,7 @@
       },
       "links": {},
       "address": "0xa8761beCDEacD70e56be419b30542f393007B9db",
-      "transactionHash": "0x373803fce49568382814ddcef515ffdc3e47c8d82ab28065a860eb09165701c5"
+      "transactionHash": "0xe2795995cff6578a16bf85941f140fe714eeec5dc7ed3ce7482e433315df038a"
     },
     "1581801454013": {
       "events": {
@@ -3253,28 +3253,10 @@
       "links": {},
       "address": "0x2b195763BD0409c7DD4887177f3EEfF9ca5321DC",
       "transactionHash": "0x1f40e404397b8bc25a0175ffe5d16ff70d76a74db6ab7ad8de7650527b57210b"
-    },
-    "1581803785253": {
-      "events": {},
-      "links": {},
-      "address": "0x59C39CEF9DffB68b534d0FAA32e843f2D462e0CA",
-      "transactionHash": "0x01e98a4bf99622b2de24c1fe666f9d9e3a3205afb658937738839bb00af08747"
-    },
-    "1581838432607": {
-      "events": {},
-      "links": {},
-      "address": "0x3799b3212adb75596D80F27077BA3db5e9F01Cd3",
-      "transactionHash": "0xc2487136abc4661a122d66b9273e175ff196f3deccff216290995171c0e578dc"
-    },
-    "1581843915764": {
-      "events": {},
-      "links": {},
-      "address": "0x5f5B5a2881922Eab541A6AdF5e337D8af93C9E09",
-      "transactionHash": "0x70f42460d0fc8cbbb729b8a4dffc5f01444e972245d410799a171439959f5133"
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2020-02-16T09:16:04.971Z",
+  "updatedAt": "2020-02-15T21:54:00.117Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {
