@@ -2,9 +2,10 @@ pragma solidity ^0.5.2;
 
 import "./ContinuousToken.sol";
 
-
+// Artist TOken
 contract ETHContinuousToken is ContinuousToken {
     uint256 internal reserve;
+    address payable internal artistAddress;
   
     constructor(
         string memory _name,
@@ -14,12 +15,17 @@ contract ETHContinuousToken is ContinuousToken {
         uint32 _reserveRatio
     ) public payable ContinuousToken(_name, _symbol, _decimals, _initialSupply, _reserveRatio) {
         reserve = msg.value;
+        artistAddress = msg.sender;
     }
 
     function () external payable { mint(); }
 
+    // calculate artist amount and send rest to contract to mint
+    // send 1.2x 
     function mint() public payable {
-        uint purchaseAmount = msg.value;
+        uint artistAmount = msg.value * 200 / 10000; // 20% artist cut
+        uint purchaseAmount = msg.value - artistAmount;
+        artistAddress.transfer(purchaseAmount);
         _continuousMint(purchaseAmount);
         reserve = reserve.add(purchaseAmount);
     }
@@ -32,5 +38,5 @@ contract ETHContinuousToken is ContinuousToken {
 
     function reserveBalance() public view returns (uint) {
         return reserve;
-    }    
+    }
 }

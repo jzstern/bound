@@ -2,37 +2,35 @@
   "contractName": "BancorBondingCurve",
   "abi": [
     {
-      "inputs": [
+      "constant": true,
+      "inputs": [],
+      "name": "reserveRatio",
+      "outputs": [
         {
-          "internalType": "uint32",
-          "name": "_reserveRatio",
+          "name": "",
           "type": "uint32"
         }
       ],
       "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "constructor"
+      "stateMutability": "view",
+      "type": "function"
     },
     {
       "constant": true,
       "inputs": [
         {
-          "internalType": "uint256",
           "name": "_supply",
           "type": "uint256"
         },
         {
-          "internalType": "uint256",
           "name": "_reserveBalance",
           "type": "uint256"
         },
         {
-          "internalType": "uint32",
           "name": "_reserveRatio",
           "type": "uint32"
         },
         {
-          "internalType": "uint256",
           "name": "_depositAmount",
           "type": "uint256"
         }
@@ -40,7 +38,6 @@
       "name": "calculatePurchaseReturn",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -53,22 +50,18 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "uint256",
           "name": "_supply",
           "type": "uint256"
         },
         {
-          "internalType": "uint256",
           "name": "_reserveBalance",
           "type": "uint256"
         },
         {
-          "internalType": "uint32",
           "name": "_reserveRatio",
           "type": "uint32"
         },
         {
-          "internalType": "uint256",
           "name": "_sellAmount",
           "type": "uint256"
         }
@@ -76,24 +69,8 @@
       "name": "calculateSaleReturn",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "reserveRatio",
-      "outputs": [
-        {
-          "internalType": "uint32",
-          "name": "",
-          "type": "uint32"
         }
       ],
       "payable": false,
@@ -106,7 +83,6 @@
       "name": "version",
       "outputs": [
         {
-          "internalType": "string",
           "name": "",
           "type": "string"
         }
@@ -116,10 +92,20 @@
       "type": "function"
     },
     {
+      "inputs": [
+        {
+          "name": "_reserveRatio",
+          "type": "uint32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
       "constant": true,
       "inputs": [
         {
-          "internalType": "uint256",
           "name": "_reserveTokenAmount",
           "type": "uint256"
         }
@@ -127,7 +113,6 @@
       "name": "getContinuousMintReward",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -140,7 +125,6 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "uint256",
           "name": "_continuousTokenAmount",
           "type": "uint256"
         }
@@ -148,7 +132,6 @@
       "name": "getContinuousBurnRefund",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -163,7 +146,6 @@
       "name": "continuousSupply",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -178,7 +160,6 @@
       "name": "reserveBalance",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -188,15 +169,14 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"_reserveRatio\",\"type\":\"uint32\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_supply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_reserveBalance\",\"type\":\"uint256\"},{\"internalType\":\"uint32\",\"name\":\"_reserveRatio\",\"type\":\"uint32\"},{\"internalType\":\"uint256\",\"name\":\"_depositAmount\",\"type\":\"uint256\"}],\"name\":\"calculatePurchaseReturn\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_supply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_reserveBalance\",\"type\":\"uint256\"},{\"internalType\":\"uint32\",\"name\":\"_reserveRatio\",\"type\":\"uint32\"},{\"internalType\":\"uint256\",\"name\":\"_sellAmount\",\"type\":\"uint256\"}],\"name\":\"calculateSaleReturn\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"continuousSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_continuousTokenAmount\",\"type\":\"uint256\"}],\"name\":\"getContinuousBurnRefund\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_reserveTokenAmount\",\"type\":\"uint256\"}],\"name\":\"getContinuousMintReward\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"reserveBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"reserveRatio\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"calculatePurchaseReturn(uint256,uint256,uint32,uint256)\":{\"details\":\"given a continuous token supply, reserve token balance, reserve ratio, and a deposit amount (in the reserve token), calculates the return for a given conversion (in the continuous token)    * Formula: Return = _supply * ((1 + _depositAmount / _reserveBalance) ^ (_reserveRatio / MAX_RESERVE_RATIO) - 1)\",\"params\":{\"_depositAmount\":\"deposit amount, in reserve token\",\"_reserveBalance\":\"total reserve token balance\",\"_reserveRatio\":\"reserve ratio, represented in ppm, 1-1000000\",\"_supply\":\"continuous token total supply\"},\"return\":\"purchase return amount\"},\"calculateSaleReturn(uint256,uint256,uint32,uint256)\":{\"details\":\"given a continuous token supply, reserve token balance, reserve ratio and a sell amount (in the continuous token), calculates the return for a given conversion (in the reserve token)    * Formula: Return = _reserveBalance * (1 - (1 - _sellAmount / _supply) ^ (1 / (_reserveRatio / MAX_RESERVE_RATIO)))\",\"params\":{\"_reserveBalance\":\"total reserve token balance\",\"_reserveRatio\":\"constant reserve ratio, represented in ppm, 1-1000000\",\"_sellAmount\":\"sell amount, in the continuous token itself\",\"_supply\":\"continuous token total supply\"},\"return\":\"sale return amount\"},\"continuousSupply()\":{\"details\":\"Abstract method that returns continuous token supply\"},\"reserveBalance()\":{\"details\":\"Abstract method that returns reserve token balance\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/curves/BancorBondingCurve.sol\":\"BancorBondingCurve\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":1500},\"remappings\":[]},\"sources\":{\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/curves/BancorBondingCurve.sol\":{\"keccak256\":\"0x687e9719bd334feff47289702610167b7278722ca2e3d1f10476d6fb4b3fac18\",\"urls\":[\"bzz-raw://3c8d354545c355f99e5851dfc99e48e988ff6b49b2482b535c82b4c28baec784\",\"dweb:/ipfs/QmZwfpQL6f5YVtAWNKrSJXKB2V1Mz7zYy3fGsFLt618ZHd\"]},\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/interfaces/IBondingCurve.sol\":{\"keccak256\":\"0x27a335544bca7d89b45438988419e4e3d5c6639dee6ff7e1e7da585db3f90b7b\",\"urls\":[\"bzz-raw://5caa54449bbd492dc880b1c3f2162614ce0483a886675df79c8c539909f29cf5\",\"dweb:/ipfs/QmfThvDW3d9L2Bjip74854Y1g1FdYaP5Eyj7PdjJy5LjEM\"]},\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/lib/ValidGasPrice.sol\":{\"keccak256\":\"0xab0eb602f0bd70cd9390021ec9d1e0b2a32f91b6c0af55fb6ea0b138f19be9fe\",\"urls\":[\"bzz-raw://153c896e4996d59fe5b747a28d8e8682f6afbae210587d7b7e2ae35ced2f1592\",\"dweb:/ipfs/QmReY8Thw4XDSKFdpLfvkEphdzBtbNr325DARGVSY9sUFc\"]},\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/math/BancorFormula.sol\":{\"keccak256\":\"0x07a5fc80f984d99091b528c4095e1c7b0a60ead97c05e3d6a5e06475e7a39e99\",\"urls\":[\"bzz-raw://efdd8da4c3c0ccbb02fcbd24fac4e8ca1e531d4d1b176f21410eb31432a93259\",\"dweb:/ipfs/Qme2dNAS3tdbLkKiH9qcJrNPi3s5kdtd5aLAZWEMAvEn2p\"]},\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/math/Power.sol\":{\"keccak256\":\"0x5a8b28886de5cede9e5be377a3649c13ac595eb996691ead28d0e8affc8bfe46\",\"urls\":[\"bzz-raw://bc28265d289fe49e251a7d12f399603ac3250cead55fed84107ff99aaeb46a32\",\"dweb:/ipfs/QmRxG1RDnaWwTzVpX12F4ECWyDZ1Kvonvm7hzJjVbWGuXE\"]},\"openzeppelin-solidity/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"openzeppelin-solidity/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"openzeppelin-solidity/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0x6fb9d7889769d7cc161225f9ef7a90e468ba9788b253816f8d8b6894d3472c24\",\"urls\":[\"bzz-raw://cf4c00fc3c37cc5acf0c82ec6fd97bab67d72c2567fdc0ebf023d9c09b30a08e\",\"dweb:/ipfs/Qmb7TChG6DsEDX7LooJ4vmxot19f7VXX8S1zUGPeJTWbwZ\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.2;\n\nimport \"../math/BancorFormula.sol\";\nimport \"../lib/ValidGasPrice.sol\";\nimport \"../interfaces/IBondingCurve.sol\";\n\n\ncontract BancorBondingCurve is IBondingCurve, BancorFormula {\n    /*\n        reserve ratio, represented in ppm, 1-1000000\n        1/3 corresponds to y= multiple * x^2\n        1/2 corresponds to y= multiple * x\n        2/3 corresponds to y= multiple * x^1/2\n    */\n    uint32 public reserveRatio;\n\n    constructor(uint32 _reserveRatio) public {\n        reserveRatio = _reserveRatio;\n    }\n\n    function getContinuousMintReward(uint _reserveTokenAmount) public view returns (uint) {\n        return calculatePurchaseReturn(continuousSupply(), reserveBalance(), reserveRatio, _reserveTokenAmount);\n    }\n\n    function getContinuousBurnRefund(uint _continuousTokenAmount) public view returns (uint) {\n        return calculateSaleReturn(continuousSupply(), reserveBalance(), reserveRatio, _continuousTokenAmount);\n    }\n\n    /**\n    * @dev Abstract method that returns continuous token supply\n    */\n    function continuousSupply() public view returns (uint);\n\n    /**\n    * @dev Abstract method that returns reserve token balance\n    */    \n    function reserveBalance() public view returns (uint);\n}",
-  "sourcePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/curves/BancorBondingCurve.sol",
+  "sourcePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/curves/BancorBondingCurve.sol",
   "ast": {
-    "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/curves/BancorBondingCurve.sol",
+    "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/curves/BancorBondingCurve.sol",
     "exportedSymbols": {
       "BancorBondingCurve": [
         122
@@ -217,7 +197,7 @@
         "src": "0:23:1"
       },
       {
-        "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/math/BancorFormula.sol",
+        "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/math/BancorFormula.sol",
         "file": "../math/BancorFormula.sol",
         "id": 59,
         "nodeType": "ImportDirective",
@@ -228,7 +208,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/lib/ValidGasPrice.sol",
+        "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/lib/ValidGasPrice.sol",
         "file": "../lib/ValidGasPrice.sol",
         "id": 60,
         "nodeType": "ImportDirective",
@@ -239,7 +219,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/interfaces/IBondingCurve.sol",
+        "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/interfaces/IBondingCurve.sol",
         "file": "../interfaces/IBondingCurve.sol",
         "id": 61,
         "nodeType": "ImportDirective",
@@ -1008,7 +988,7 @@
     "src": "0:1235:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/curves/BancorBondingCurve.sol",
+    "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/curves/BancorBondingCurve.sol",
     "exportedSymbols": {
       "BancorBondingCurve": [
         122
@@ -1029,7 +1009,7 @@
         "src": "0:23:1"
       },
       {
-        "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/math/BancorFormula.sol",
+        "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/math/BancorFormula.sol",
         "file": "../math/BancorFormula.sol",
         "id": 59,
         "nodeType": "ImportDirective",
@@ -1040,7 +1020,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/lib/ValidGasPrice.sol",
+        "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/lib/ValidGasPrice.sol",
         "file": "../lib/ValidGasPrice.sol",
         "id": 60,
         "nodeType": "ImportDirective",
@@ -1051,7 +1031,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/interfaces/IBondingCurve.sol",
+        "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/interfaces/IBondingCurve.sol",
         "file": "../interfaces/IBondingCurve.sol",
         "id": 61,
         "nodeType": "ImportDirective",
@@ -1821,11 +1801,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T12:52:29.743Z",
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2020-02-16T14:54:14.890Z",
   "devdoc": {
     "methods": {
       "calculatePurchaseReturn(uint256,uint256,uint32,uint256)": {

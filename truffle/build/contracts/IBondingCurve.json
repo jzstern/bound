@@ -5,7 +5,6 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "uint256",
           "name": "_reserveTokenAmount",
           "type": "uint256"
         }
@@ -13,7 +12,6 @@
       "name": "getContinuousMintReward",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -26,7 +24,6 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "uint256",
           "name": "_continuousTokenAmount",
           "type": "uint256"
         }
@@ -34,7 +31,6 @@
       "name": "getContinuousBurnRefund",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -44,15 +40,14 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_continuousTokenAmount\",\"type\":\"uint256\"}],\"name\":\"getContinuousBurnRefund\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_reserveTokenAmount\",\"type\":\"uint256\"}],\"name\":\"getContinuousMintReward\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"getContinuousBurnRefund(uint256)\":{\"details\":\"Given a continuous token amount, calculates the amount of reserve tokens returned.\"},\"getContinuousMintReward(uint256)\":{\"details\":\"Given a reserve token amount, calculates the amount of continuous tokens returned.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/interfaces/IBondingCurve.sol\":\"IBondingCurve\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":1500},\"remappings\":[]},\"sources\":{\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/interfaces/IBondingCurve.sol\":{\"keccak256\":\"0x27a335544bca7d89b45438988419e4e3d5c6639dee6ff7e1e7da585db3f90b7b\",\"urls\":[\"bzz-raw://5caa54449bbd492dc880b1c3f2162614ce0483a886675df79c8c539909f29cf5\",\"dweb:/ipfs/QmfThvDW3d9L2Bjip74854Y1g1FdYaP5Eyj7PdjJy5LjEM\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.2;\n\n\ninterface IBondingCurve {\n    /**\n    * @dev Given a reserve token amount, calculates the amount of continuous tokens returned.\n    */\n    function getContinuousMintReward(uint _reserveTokenAmount) external view returns (uint);\n\n    /**\n    * @dev Given a continuous token amount, calculates the amount of reserve tokens returned.\n    */  \n    function getContinuousBurnRefund(uint _continuousTokenAmount) external view returns (uint);\n}\n",
-  "sourcePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/interfaces/IBondingCurve.sol",
+  "sourcePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/interfaces/IBondingCurve.sol",
   "ast": {
-    "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/interfaces/IBondingCurve.sol",
+    "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/interfaces/IBondingCurve.sol",
     "exportedSymbols": {
       "IBondingCurve": [
         139
@@ -255,7 +250,7 @@
     "src": "0:464:2"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/interfaces/IBondingCurve.sol",
+    "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/interfaces/IBondingCurve.sol",
     "exportedSymbols": {
       "IBondingCurve": [
         139
@@ -459,11 +454,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T12:52:29.744Z",
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2020-02-16T14:54:14.890Z",
   "devdoc": {
     "methods": {
       "getContinuousBurnRefund(uint256)": {
