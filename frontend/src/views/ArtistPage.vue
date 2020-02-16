@@ -7,7 +7,7 @@
     </div>-->
 
     <div id="primary">
-      <div>
+      <div class="shrink-top">
         <h3 style="margin-left: 25px">Ticket</h3>
         <div id="artist-card">
           <img id="artist-img" :src="imageSrc" />
@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="shrink-top">
         <h3 style="margin-left: 25px">Price</h3>
         <div id="curve-card">
           <div id="graph-section">
@@ -182,6 +182,10 @@ li {
   opacity: 0.9;
 }
 
+.shrink-top {
+  margin-top: -20px;
+}
+
 #artist-page {
   max-width: 80%;
   margin: auto;
@@ -282,7 +286,6 @@ li {
   justify-content: center;
   width: 80%;
   margin: auto;
-  margin-top: -80px;
 }
 
 #card-titles {
