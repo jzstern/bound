@@ -79,7 +79,7 @@ export default {
           // From address will automatically be replaced by the address of current user
           from: "0x0000000000000000000000000000000000000000",
           to: this.contractAddress,
-          value: web3.utils.toWei(this.tokenPriceEth, "ether")
+          value: web3.utils.toWei(this.tokenPriceEth.toString(), "ether")
         },
         async (error, txnHash) => {
           if (error) {
