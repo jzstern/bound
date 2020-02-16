@@ -46,6 +46,7 @@
         </div>
       </div>
     </div>
+    <Tests />
 
     <Prizes :prizes-unlocked="prizesUnlocked" />
     <Buy class="modal" @close="buy = false" @confirmed="prizesUnlocked = true" v-show="buy" />
@@ -66,6 +67,7 @@ import Buy from "../components/Buy.vue";
 import Sell from "../components/Sell.vue";
 import Prizes from "../components/Prizes.vue";
 import ArtistTitle from "../components/ArtistTitle.vue";
+import Tests from "../tests/Tests.vue";
 
 export default {
   name: "ArtistPage",
@@ -73,7 +75,8 @@ export default {
     Buy,
     Sell,
     Prizes,
-    ArtistTitle
+    ArtistTitle,
+    Tests
   },
   data() {
     return {

@@ -10,69 +10,24 @@ let getEmptyTokenContractObject = async function() {
 	return contract;
 };
 
-/** Get current supply of a token contract given address **/
-let getReserveBalance = async function(tokenAddress) {
-	let reserveBalance = null;
-	let contract = await getTokenContractObject(tokenAddress);
-	await contract.methods.reserveBalance().call(function(error, _reserveBalance){
-		reserveBalance = _reserveBalance;
+let deployArtistContract = async function(artistAddress, tokenName, tokenSymbol) {
+	let contract = await getEmptyTokenContractObject();
+	//deployer.deploy(ETHContinuousToken, "ArtistToken1", "ART0", 18, 1, 330000); 
+	await contract.deploy({
+		data: tokenContractABI.bytecode,
+		arguments: [tokenName, tokenSymbol, 18, 1, 330000]
+	})
+	.send({
+		from: artistAddress,
+		gas: 5699610,
+		gasPrice: web3.utils.toWei('1', 'wei')
+	}, function(error, transactionHash) {
+		console.log(error);
+	})
+	.then((newContractInstance) => {
+		contract.options.address=newContractInstance.options.address
 	});
-	reserveBalance = 0.1; // todo feewet remove
-	return reserveBalance;
-};
-
-/** Get current supply of artist token given token address **/
-let getContinuousSupply = async function(tokenAddress) {
-	let continuousSupply = null;
-	let contract = await getTokenContractObject(tokenAddress);
-	await contract.methods.continuousSupply().call(function(error, _continuousSupply){
-		continuousSupply = _continuousSupply;
-	});
-	continuousSupply = 1; // todo feewet remove
-	return continuousSupply;
-};
-
-/** getUserTokenBalance: address address -> integer
- ** Return token balance for wallet given tokenAddress **/
-let getUserTokenBalance = async function(tokenAddress, userAddress) {
-	let userTokenBalance = null;
-	let contract = await getTokenContractObject(tokenAddress);
-	// Call balanceOf function
-	await contract.methods.balanceOf(userAddress).call(function(error, _userTokenBalance){
-	  contract.methods.decimals().call((error, decimals) => {
-	    // calculate balance todo feewet is this correct?
-	    //balance = balance.div(10**decimals);
-	    userTokenBalance = _userTokenBalance;
-	  });
-	});
-	userTokenBalance = 0; // todo feewet remove
-	return userTokenBalance;
-};
-
-/** getContinuousMintReward: address integer integer integer integer -> integer
- ** Return purchase return amount given paramaters **/
-let getContinuousMintReward = async function(tokenAddress, reserveTokenAmount=1) {
-	return 1; // todo feewet remove
-	let mintReward = null;
-	let contract = await getTokenContractObject(tokenAddress);
-	await contract.methods.getContinuousBurnRefund(reserveTokenAmount).call(function(error, _mintReward){
-			mintReward = _mintReward;
-	});
-	mintReward = 1; // todo feewet remove
-	return mintReward;
-};
-
-/** getContinuousMintReward: address integer integer integer integer -> integer
- ** Return purchase return amount given paramaters **/
-let getContinuousMintBurnRefund = async function(tokenAddress, reserveTokenAmount=1) {
-	return 0.1; // todo feewet remove
-	let burnRefund = null;
-	let contract = await getTokenContractObject(tokenAddress);
-	await contract.methods.getContinuousMintRefund(reserveTokenAmount).call(function(error, _burnRefund){
-			burnRefund = _burnRefund;
-	});
-	burnRefund = 0.1; // todo feewet remove
-	return burnRefund;
+	return contract;
 };
 
 export default {
