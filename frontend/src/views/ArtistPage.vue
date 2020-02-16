@@ -27,7 +27,8 @@
 
       <div id="curve-card">
         <div id="graph-section">
-          <img class="graph" src="../assets/graph.svg" />
+          <ChartsContainer />
+          <!-- <img class="graph" src="../assets/graph.svg" /> -->
         </div>
 
         <div id="trade-section">
@@ -56,15 +57,20 @@
         </div>
       </div>
     </div>
-
-    <Prizes :prizes-unlocked="prizesUnlocked" />
-    <Buy
-      class="modal"
-      @close="buy = false"
-      @confirmed="(prizesUnlocked = true), (buy = false)"
-      v-show="buy"
-    />
-    <Sell class="modal" @close="sell = false" v-show="sell" />
+    <transition name="slide-fade">
+      <Prizes :prizes-unlocked="prizesUnlocked" />
+    </transition>
+    <transition name="slide-fade">
+      <Buy
+        class="modal"
+        @close="buy = false"
+        @confirmed="(prizesUnlocked = true), (buy = false)"
+        v-show="buy"
+      />
+    </transition>
+    <transition name="slide-fade">
+      <Sell class="modal" @close="sell = false" v-show="sell" />
+    </transition>
   </div>
 </template>
 
@@ -72,6 +78,7 @@
 import store from "../store/index.js";
 import Fortmatic from "fortmatic";
 import Web3 from "web3";
+import ChartsContainer from "../components/ChartsContainer.vue";
 // import { web3Provider as web3 } from "../web3Provider.js";
 // import { fm as provider } from "../web3Provider.js";
 // import Box from "../web3Provider.js";
@@ -86,6 +93,7 @@ export default {
   name: "ArtistPage",
   components: {
     Buy,
+    ChartsContainer,
     Sell,
     Prizes,
     ArtistTitle

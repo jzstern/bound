@@ -19,6 +19,12 @@
   -moz-transition: all 0.8s ease;
 }
 
+%test-transition {
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+}
+
 %hover {
   @extend %quick-ease;
   &:hover {

@@ -55,4 +55,16 @@ h3 {
 #content {
   padding-top: 80px !important;
 }
+
+.slide-fade-enter-active {
+  transition: all 1.8s ease;
+}
+.slide-fade-leave-active {
+  transition: all 1.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  // transform: translateY(10px);
+  opacity: 0;
+}
 </style>
