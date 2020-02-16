@@ -1,8 +1,8 @@
 module.exports = {
   networks: {
     development: { // Ganache
-      host: 'localhost',
-      port: 8545, //7545, //8545, // CLI
+      host: 'ethdenver0.skalenodes.com',
+      port: 10497, //7545, //8545, // CLI
       //gas: 6000000,
       network_id: '*', // 5777
     },
