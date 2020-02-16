@@ -1,6 +1,6 @@
 <template>
   <div class="artist-page">
-    <ArtistTitle />
+    <ArtistTitle :prizes-unlocked="prizesUnlocked" />
     <div id="card-titles">
       <h3 style="width:50%; margin:0;">Ticket</h3>
       <h3 style="width:50%; margin:0; transform:translateX(-25px);">Price</h3>
@@ -57,7 +57,12 @@
     </div>
 
     <Prizes :prizes-unlocked="prizesUnlocked" />
-    <Buy class="modal" @close="buy = false" v-show="buy" />
+    <Buy
+      class="modal"
+      @close="buy = false"
+      @confirmed="prizesUnlocked = true"
+      v-show="buy"
+    />
     <Sell class="modal" @close="sell = false" v-show="sell" />
   </div>
 </template>
@@ -73,7 +78,6 @@ import ArtistTitle from "../components/ArtistTitle.vue";
 
 export default {
   name: "ArtistPage",
-  computed: {},
   components: {
     Buy,
     Sell,

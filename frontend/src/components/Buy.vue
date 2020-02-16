@@ -41,14 +41,80 @@ import { web3Provider as web3 } from "../web3Provider.js";
 
 export default {
   name: "Buy",
+  data() {
+    return {
+      price: ".001",
+      contractAddress: "0x0000000000000000000000000000000000000000"
+    };
+  },
   methods: {
-    buyToken() {
-      web3.eth.sendTransaction({
-        // From address will automatically be replaced by the address of current user
-        from: "0x0000000000000000000000000000000000000000",
-        to: this.contractAddress,
-        value: web3.utils.toWei(amount, "ether")
+    getTransactionReceipt: async function(hash) {
+      let receipt = null;
+
+      while (receipt === null) {
+        receipt = await this.getTransactionReceiptPromise(hash);
+        setTimeout("", 1000);
+      }
+
+      return receipt;
+    },
+    getTransactionReceiptPromise(hash) {
+      // ? promisify this
+      return new Promise((resolve, reject) => {
+        web3.eth.getTransactionReceipt(hash, function(err, data) {
+          if (err !== null) reject(err);
+          else resolve(data);
+        });
       });
+    },
+    buyToken: async function() {
+      // web3.eth
+      //   .sendTransaction({
+      //     // From address will automatically be replaced by the address of current user
+      //     from: "0x0000000000000000000000000000000000000000",
+      //     to: this.contractAddress,
+      //     value: web3.utils.toWei(this.price, "ether")
+      //   })
+      //   .on("transactionHash", function(hash) {
+      //     receipt = web3.eth.getTransactionReceipt(hash);
+      //     if (receipt) {
+      //       // returned
+      //       console.log("returned reciept: " + receipt);
+      //     } else {
+      //       // didn't return
+      //       console.log("failed");
+      //     }
+      //   });
+
+      // web3.eth.sendTransaction(async (error, txnHash) => {
+      //   if (receipt) {
+      //     console.log("receipt received");
+      //   }
+      // });
+
+      web3.eth.sendTransaction(
+        {
+          // From address will automatically be replaced by the address of current user
+          from: "0x0000000000000000000000000000000000000000",
+          to: this.contractAddress,
+          value: web3.utils.toWei(this.price, "ether")
+        },
+        async (error, txnHash) => {
+          if (error) {
+            // TODO ; error handling
+          } else {
+            console.log("Transaction Hash: " + txnHash);
+            this.$emit("confirmed");
+            // const receipt = await this.getTransactionReceipt(txnHash);
+
+            // if (receipt) {
+            //   if (this.network === "mainnet") {
+            //     console.log("tip success! do something");
+            //   }
+            // }
+          }
+        }
+      );
     }
   }
 };

@@ -27,6 +27,7 @@ export default {
         });
         web3.eth.getCoinbase((error, coinbase) => {
           if (error) throw error;
+          console.log(coinbase);
           store.commit("setUserWalletAddress", coinbase);
         });
       }

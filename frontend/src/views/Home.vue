@@ -3,9 +3,9 @@
     <div id="card-grid">
       <router-link to="/artist">
         <div class="card">
-          <img id="artist-img" :src="imgUrl" />
+          <!-- <img id="artist-img" :src="imgUrl" />
           <h2>{{ artistName }}</h2>
-          <h5>Price: {{ amount }} ETH</h5>
+          <h5>Price: {{ amount }} ETH</h5> -->
           Kaytranada
         </div>
       </router-link>

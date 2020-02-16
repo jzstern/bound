@@ -17,7 +17,7 @@
       <div class="card"><p>Concert</p></div>
     </div>
 
-    <RedeemPrize v-show="redeemPrize" />
+    <RedeemPrize @close="redeemPrize = false" v-show="redeemPrize" />
   </div>
 </template>
 
@@ -83,6 +83,7 @@ export default {
 .card {
   //   background-color: #1d1f20;
   @extend %center;
+  cursor: pointer;
   color: #1d1f20;
   padding: 1rem;
   font-family: "Syne";

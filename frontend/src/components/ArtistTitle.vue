@@ -5,12 +5,34 @@
       <img src="../assets/verfied.svg" />
       <p>Official artist page</p>
     </div>
+    <div
+      class="tokenOwnership"
+      :class="{ own: prizesUnlocked, dontOwn: !prizesUnlocked }"
+    >
+      {{ ownershipText }}
+      <!-- {{ prizesUnlocked }} -->
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "artistTitle"
+  name: "artistTitle",
+  computed: {
+    ownershipText() {
+      if (!this.prizesUnlocked) {
+        return "You do not own this token";
+      } else {
+        return "You own this token";
+      }
+    }
+  },
+  props: { prizesUnlocked: Boolean },
+  data() {
+    return {
+      ownership: false
+    };
+  }
 };
 </script>
 
@@ -35,6 +57,25 @@ export default {
     margin-right: 10px;
     opacity: 1;
   }
+}
+
+.tokenOwnership {
+  float: right;
+  padding: 15px 20px;
+  border-radius: 5px;
+  transform: translate(10px, -75px);
+}
+
+.dontOwn {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  opacity: 0.3;
+}
+
+.own {
+  border: 1px solid rgb(38, 162, 0);
+  opacity: 1;
+
+  color: rgb(38, 162, 0);
 }
 
 #artist-title {
