@@ -2,8 +2,8 @@ import Fortmatic from 'fortmatic';
 import Web3 from "web3";
 
 const customNodeOptions = {
-    rpcUrl: 'http://127.0.0.1:7545',//, // your own node url
-    chainId: 5777 // chainId of your own node
+  rpcUrl: 'http://127.0.0.1:7545',//, // your own node url
+  chainId: 5777 // chainId of your own node
 }
 
 /** Setting network to localhost blockchain **/

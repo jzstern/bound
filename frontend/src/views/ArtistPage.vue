@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <Tests ref="Tests" @receivedContractData="updateContract(data)" />
+    <Tests ref="Tests" @receivedContractData="updateContract" />
 
     <Prizes :prizes-unlocked="prizesUnlocked" />
     <Buy class="modal" @close="buy = false" @confirmed="prizesUnlocked = true" v-show="buy" />
@@ -118,8 +118,8 @@ export default {
 
       return ethQuery.data.ethereum.usd;
     },
-    updateContract(data) {
-      console.log(data);
+    updateContract(contractData) {
+      console.log(contractData);
     }
   },
   mounted: async function() {

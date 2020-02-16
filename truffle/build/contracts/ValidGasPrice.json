@@ -2,13 +2,63 @@
   "contractName": "ValidGasPrice",
   "abi": [
     {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": true,
       "inputs": [],
       "name": "maxGasPrice",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "",
           "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
         }
       ],
       "payable": false,
@@ -25,37 +75,10 @@
       "type": "function"
     },
     {
-      "constant": true,
-      "inputs": [],
-      "name": "owner",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "isOwner",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "constant": false,
       "inputs": [
         {
+          "internalType": "address",
           "name": "newOwner",
           "type": "address"
         }
@@ -67,26 +90,10 @@
       "type": "function"
     },
     {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "previousOwner",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "name": "newOwner",
-          "type": "address"
-        }
-      ],
-      "name": "OwnershipTransferred",
-      "type": "event"
-    },
-    {
       "constant": false,
       "inputs": [
         {
+          "internalType": "uint256",
           "name": "newPrice",
           "type": "uint256"
         }
@@ -98,14 +105,15 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6080604052670de0b6b3a76400006001556000610023640100000000610072810204565b60008054600160a060020a031916600160a060020a0383169081178255604051929350917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a350610076565b3390565b6104e5806100856000396000f3fe608060405234801561001057600080fd5b506004361061008f576000357c0100000000000000000000000000000000000000000000000000000000900480638f32d59b1161006d5780638f32d59b146100e9578063d2fa635e14610105578063f2fde38b146101225761008f565b80633de39c1114610094578063715018a6146100ae5780638da5cb5b146100b8575b600080fd5b61009c610155565b60408051918252519081900360200190f35b6100b661015b565b005b6100c061023f565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b6100f161025b565b604080519115158252519081900360200190f35b6100b66004803603602081101561011b57600080fd5b5035610299565b6100b66004803603602081101561013857600080fd5b503573ffffffffffffffffffffffffffffffffffffffff16610313565b60015481565b61016361025b565b15156101d057604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6000805460405173ffffffffffffffffffffffffffffffffffffffff909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080547fffffffffffffffffffffffff0000000000000000000000000000000000000000169055565b60005473ffffffffffffffffffffffffffffffffffffffff1690565b6000805473ffffffffffffffffffffffffffffffffffffffff1661027d610394565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b6102a161025b565b151561030e57604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600155565b61031b61025b565b151561038857604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b61039181610398565b50565b3390565b73ffffffffffffffffffffffffffffffffffffffff81161515610406576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806104946026913960400191505060405180910390fd5b6000805460405173ffffffffffffffffffffffffffffffffffffffff808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080547fffffffffffffffffffffffff00000000000000000000000000000000000000001673ffffffffffffffffffffffffffffffffffffffff9290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a165627a7a723058200311c705ab1c2807c4e6d69cb4901077d2c4819e611a7d83653ba4daf2be17350029",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061008f576000357c0100000000000000000000000000000000000000000000000000000000900480638f32d59b1161006d5780638f32d59b146100e9578063d2fa635e14610105578063f2fde38b146101225761008f565b80633de39c1114610094578063715018a6146100ae5780638da5cb5b146100b8575b600080fd5b61009c610155565b60408051918252519081900360200190f35b6100b661015b565b005b6100c061023f565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b6100f161025b565b604080519115158252519081900360200190f35b6100b66004803603602081101561011b57600080fd5b5035610299565b6100b66004803603602081101561013857600080fd5b503573ffffffffffffffffffffffffffffffffffffffff16610313565b60015481565b61016361025b565b15156101d057604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6000805460405173ffffffffffffffffffffffffffffffffffffffff909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080547fffffffffffffffffffffffff0000000000000000000000000000000000000000169055565b60005473ffffffffffffffffffffffffffffffffffffffff1690565b6000805473ffffffffffffffffffffffffffffffffffffffff1661027d610394565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b6102a161025b565b151561030e57604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600155565b61031b61025b565b151561038857604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b61039181610398565b50565b3390565b73ffffffffffffffffffffffffffffffffffffffff81161515610406576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806104946026913960400191505060405180910390fd5b6000805460405173ffffffffffffffffffffffffffffffffffffffff808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080547fffffffffffffffffffffffff00000000000000000000000000000000000000001673ffffffffffffffffffffffffffffffffffffffff9290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a165627a7a723058200311c705ab1c2807c4e6d69cb4901077d2c4819e611a7d83653ba4daf2be17350029",
-  "sourceMap": "91:356:3:-;;;160:10;131:39;;698:17:14;718:12;:10;;;;:12;:::i;:::-;740:6;:18;;-1:-1:-1;;;;;;740:18:14;-1:-1:-1;;;;;740:18:14;;;;;;;773:43;;740:18;;-1:-1:-1;740:18:14;773:43;;740:6;;773:43;664:159;91:356:3;;788:96:10;867:10;788:96;:::o;91:356:3:-;;;;;;;",
-  "deployedSourceMap": "91:356:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;91:356:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;131:39;;;:::i;:::-;;;;;;;;;;;;;;;;1684:137:14;;;:::i;:::-;;899:77;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1250:92;;;:::i;:::-;;;;;;;;;;;;;;;;;;347:98:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;347:98:3;;:::i;1970:107:14:-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1970:107:14;;;;:::i;131:39:3:-;;;;:::o;1684:137:14:-;1103:9;:7;:9::i;:::-;1095:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1782:1;1766:6;;1745:40;;;1766:6;;;;1745:40;;1782:1;;1745:40;1812:1;1795:19;;;;;;1684:137::o;899:77::-;937:7;963:6;;;899:77;:::o;1250:92::-;1290:4;1329:6;;;;1313:12;:10;:12::i;:::-;:22;;;1306:29;;1250:92;:::o;347:98:3:-;1103:9:14;:7;:9::i;:::-;1095:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;416:11:3;:22;347:98::o;1970:107:14:-;1103:9;:7;:9::i;:::-;1095:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2042:28;2061:8;2042:18;:28::i;:::-;1970:107;:::o;788:96:10:-;867:10;788:96;:::o;2178:225:14:-;2251:22;;;;;2243:73;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2352:6;;;2331:38;;;;;;;2352:6;;;2331:38;;;2379:6;:17;;;;;;;;;;;;;;;2178:225::o",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"maxGasPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newPrice\",\"type\":\"uint256\"}],\"name\":\"setMaxGasPrice\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"isOwner()\":{\"details\":\"Returns true if the caller is the current owner.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/lib/ValidGasPrice.sol\":\"ValidGasPrice\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":1500},\"remappings\":[]},\"sources\":{\"/Users/jzstern/Go on.... GIT/bound/truffle/contracts/lib/ValidGasPrice.sol\":{\"keccak256\":\"0xab0eb602f0bd70cd9390021ec9d1e0b2a32f91b6c0af55fb6ea0b138f19be9fe\",\"urls\":[\"bzz-raw://153c896e4996d59fe5b747a28d8e8682f6afbae210587d7b7e2ae35ced2f1592\",\"dweb:/ipfs/QmReY8Thw4XDSKFdpLfvkEphdzBtbNr325DARGVSY9sUFc\"]},\"openzeppelin-solidity/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"openzeppelin-solidity/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0x6fb9d7889769d7cc161225f9ef7a90e468ba9788b253816f8d8b6894d3472c24\",\"urls\":[\"bzz-raw://cf4c00fc3c37cc5acf0c82ec6fd97bab67d72c2567fdc0ebf023d9c09b30a08e\",\"dweb:/ipfs/Qmb7TChG6DsEDX7LooJ4vmxot19f7VXX8S1zUGPeJTWbwZ\"]}},\"version\":1}",
+  "bytecode": "0x6080604052670de0b6b3a764000060015560006100236001600160e01b0361007216565b600080546001600160a01b0319166001600160a01b0383169081178255604051929350917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a350610076565b3390565b6103ec806100856000396000f3fe608060405234801561001057600080fd5b50600436106100725760003560e01c80638f32d59b116100505780638f32d59b146100bf578063d2fa635e146100db578063f2fde38b146100f857610072565b80633de39c1114610077578063715018a6146100915780638da5cb5b1461009b575b600080fd5b61007f61011e565b60408051918252519081900360200190f35b610099610124565b005b6100a36101df565b604080516001600160a01b039092168252519081900360200190f35b6100c76101ee565b604080519115158252519081900360200190f35b610099600480360360208110156100f157600080fd5b5035610212565b6100996004803603602081101561010e57600080fd5b50356001600160a01b0316610270565b60015481565b61012c6101ee565b61017d576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080547fffffffffffffffffffffffff0000000000000000000000000000000000000000169055565b6000546001600160a01b031690565b600080546001600160a01b03166102036102d5565b6001600160a01b031614905090565b61021a6101ee565b61026b576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600155565b6102786101ee565b6102c9576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6102d2816102d9565b50565b3390565b6001600160a01b03811661031e5760405162461bcd60e51b81526004018080602001828103825260268152602001806103926026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080547fffffffffffffffffffffffff0000000000000000000000000000000000000000166001600160a01b039290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a265627a7a72315820529c60a91930de7918c7b6cdd755def66da059a3a146e13514430f21f193c3b064736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100725760003560e01c80638f32d59b116100505780638f32d59b146100bf578063d2fa635e146100db578063f2fde38b146100f857610072565b80633de39c1114610077578063715018a6146100915780638da5cb5b1461009b575b600080fd5b61007f61011e565b60408051918252519081900360200190f35b610099610124565b005b6100a36101df565b604080516001600160a01b039092168252519081900360200190f35b6100c76101ee565b604080519115158252519081900360200190f35b610099600480360360208110156100f157600080fd5b5035610212565b6100996004803603602081101561010e57600080fd5b50356001600160a01b0316610270565b60015481565b61012c6101ee565b61017d576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080547fffffffffffffffffffffffff0000000000000000000000000000000000000000169055565b6000546001600160a01b031690565b600080546001600160a01b03166102036102d5565b6001600160a01b031614905090565b61021a6101ee565b61026b576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600155565b6102786101ee565b6102c9576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6102d2816102d9565b50565b3390565b6001600160a01b03811661031e5760405162461bcd60e51b81526004018080602001828103825260268152602001806103926026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080547fffffffffffffffffffffffff0000000000000000000000000000000000000000166001600160a01b039290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a265627a7a72315820529c60a91930de7918c7b6cdd755def66da059a3a146e13514430f21f193c3b064736f6c63430005100032",
+  "sourceMap": "91:356:3:-;;;160:10;131:39;;698:17:14;718:12;-1:-1:-1;;;;;718:10:14;:12;:::i;:::-;740:6;:18;;-1:-1:-1;;;;;;740:18:14;-1:-1:-1;;;;;740:18:14;;;;;;;773:43;;740:18;;-1:-1:-1;740:18:14;773:43;;740:6;;773:43;664:159;91:356:3;;788:96:10;867:10;788:96;:::o;91:356:3:-;;;;;;;",
+  "deployedSourceMap": "91:356:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;91:356:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;131:39;;;:::i;:::-;;;;;;;;;;;;;;;;1684:137:14;;;:::i;:::-;;899:77;;;:::i;:::-;;;;-1:-1:-1;;;;;899:77:14;;;;;;;;;;;;;;1250:92;;;:::i;:::-;;;;;;;;;;;;;;;;;;347:98:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;347:98:3;;:::i;1970:107:14:-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1970:107:14;-1:-1:-1;;;;;1970:107:14;;:::i;131:39:3:-;;;;:::o;1684:137:14:-;1103:9;:7;:9::i;:::-;1095:54;;;;;-1:-1:-1;;;1095:54:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1782:1;1766:6;;1745:40;;-1:-1:-1;;;;;1766:6:14;;;;1745:40;;1782:1;;1745:40;1812:1;1795:19;;;;;;1684:137::o;899:77::-;937:7;963:6;-1:-1:-1;;;;;963:6:14;899:77;:::o;1250:92::-;1290:4;1329:6;;-1:-1:-1;;;;;1329:6:14;1313:12;:10;:12::i;:::-;-1:-1:-1;;;;;1313:22:14;;1306:29;;1250:92;:::o;347:98:3:-;1103:9:14;:7;:9::i;:::-;1095:54;;;;;-1:-1:-1;;;1095:54:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;416:11:3;:22;347:98::o;1970:107:14:-;1103:9;:7;:9::i;:::-;1095:54;;;;;-1:-1:-1;;;1095:54:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2042:28;2061:8;2042:18;:28::i;:::-;1970:107;:::o;788:96:10:-;867:10;788:96;:::o;2178:225:14:-;-1:-1:-1;;;;;2251:22:14;;2243:73;;;;-1:-1:-1;;;2243:73:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2352:6;;;2331:38;;-1:-1:-1;;;;;2331:38:14;;;;2352:6;;;2331:38;;;2379:6;:17;;;;-1:-1:-1;;;;;2379:17:14;;;;;;;;;;2178:225::o",
   "source": "pragma solidity ^0.5.2;\n\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\n\n\ncontract ValidGasPrice is Ownable {\n    uint256 public maxGasPrice = 1 * 10**18;\n\n    modifier validGasPrice() {\n        require(tx.gasprice <= maxGasPrice, \"Gas price must be <= maximum gas price to prevent front running attacks.\");\n        _;\n    }\n\n    function setMaxGasPrice(uint256 newPrice) public onlyOwner {\n        maxGasPrice = newPrice;\n    }\n}",
-  "sourcePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/lib/ValidGasPrice.sol",
+  "sourcePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/lib/ValidGasPrice.sol",
   "ast": {
-    "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/lib/ValidGasPrice.sol",
+    "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/lib/ValidGasPrice.sol",
     "exportedSymbols": {
       "ValidGasPrice": [
         176
@@ -577,7 +585,7 @@
     "src": "0:447:3"
   },
   "legacyAST": {
-    "absolutePath": "/Users/feewet/dev/ethdenver/bound/truffle/contracts/lib/ValidGasPrice.sol",
+    "absolutePath": "/Users/jzstern/Go on.... GIT/bound/truffle/contracts/lib/ValidGasPrice.sol",
     "exportedSymbols": {
       "ValidGasPrice": [
         176
@@ -1050,11 +1058,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.1",
-  "updatedAt": "2020-02-15T21:24:57.030Z",
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-02-16T12:52:29.745Z",
   "devdoc": {
     "methods": {
       "isOwner()": {
