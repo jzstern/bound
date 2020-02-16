@@ -32,7 +32,6 @@
           <h5>current value</h5>
           <div id="price-and-token">
             <h1>${{ tokenPriceUsd }}</h1>
-            <!-- <h1>$122.54</h1> -->
             <img id="token-number" src="../assets/tokenNumber.svg" />
           </div>
           <div id="trade-buttons">
@@ -81,8 +80,11 @@ export default {
     ethPriceUsd() {
       return this.$store.state.ethPrice;
     },
+    tokenPriceEth() {
+      return this.$store.state.tokenPriceEth;
+    },
     tokenPriceUsd() {
-      return (this.ethPriceUsd * this.price).toFixed(2) || 0;
+      return (this.ethPriceUsd * this.tokenPriceEth).toFixed(2) || 0;
     }
   },
   data() {
@@ -90,7 +92,6 @@ export default {
       artistAddress: null,
       artistName: null,
       boxAddress: "0x2ca6aFF1D484E86f24e0a9c9D879b116c3c904C5",
-      price: ".1",
       buy: false,
       sell: false,
       imageSrc: "",
@@ -118,6 +119,7 @@ export default {
 
     let ethPrice = await this.getETHPrice();
     store.commit("setEthPrice", ethPrice);
+    store.commit("setTokenPriceEth", 0.37592);
   }
 };
 </script>

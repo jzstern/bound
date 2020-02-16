@@ -4,24 +4,19 @@
       <div class="modal-container">
         <div class="modal-body">
           <div id="left-column" style="width: 50%; float:left">
-            <p>Token value</p>
-            <p>Artist allocation</p>
             <p style="font-weight:700">Total price</p>
           </div>
 
           <div id="right-column">
-            <p>$122.45</p>
-            <p>$24.45</p>
-            <p style="font-weight:700">$145.90</p>
+            <p style="font-weight:700">{{ tokenPriceUsd }}</p>
           </div>
         </div>
-        <!-- <div id="currency-amount">0.512343823 ETH</div> -->
         <div
           @click="buyToken"
           class="btn"
           style="background-color:#398557; width:100%; margin:0; margin-bottom:10px;"
         >
-          <p>Buy for 0.512343823 ETH</p>
+          <p>Buy for {{ tokenPriceEth }} ETH</p>
         </div>
         <div
           class="btn btn-cancel"
@@ -41,6 +36,17 @@ import { web3Provider as web3 } from "../web3Provider.js";
 
 export default {
   name: "Buy",
+  computed: {
+    ethPriceUsd() {
+      return this.$store.state.ethPrice;
+    },
+    tokenPriceEth() {
+      return this.$store.state.tokenPriceEth;
+    },
+    tokenPriceUsd() {
+      return (this.ethPriceUsd * this.tokenPriceEth).toFixed(2) || 0;
+    }
+  },
   data() {
     return {
       price: ".001",
@@ -68,36 +74,12 @@ export default {
       });
     },
     buyToken: async function() {
-      // web3.eth
-      //   .sendTransaction({
-      //     // From address will automatically be replaced by the address of current user
-      //     from: "0x0000000000000000000000000000000000000000",
-      //     to: this.contractAddress,
-      //     value: web3.utils.toWei(this.price, "ether")
-      //   })
-      //   .on("transactionHash", function(hash) {
-      //     receipt = web3.eth.getTransactionReceipt(hash);
-      //     if (receipt) {
-      //       // returned
-      //       console.log("returned reciept: " + receipt);
-      //     } else {
-      //       // didn't return
-      //       console.log("failed");
-      //     }
-      //   });
-
-      // web3.eth.sendTransaction(async (error, txnHash) => {
-      //   if (receipt) {
-      //     console.log("receipt received");
-      //   }
-      // });
-
       web3.eth.sendTransaction(
         {
           // From address will automatically be replaced by the address of current user
           from: "0x0000000000000000000000000000000000000000",
           to: this.contractAddress,
-          value: web3.utils.toWei(this.price, "ether")
+          value: web3.utils.toWei(this.tokenPriceEth, "ether")
         },
         async (error, txnHash) => {
           if (error) {
@@ -166,7 +148,6 @@ export default {
 
 .modal-container {
   position: relative;
-  height: 310px;
   width: 350px;
   margin: 0px auto;
   padding: 20px 30px;
