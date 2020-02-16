@@ -35,6 +35,9 @@
 				}
 				console.log(contractData);
 				return contractData;
+			},
+			async deployArtistContracts() {
+				
 			}
 		},
 		mounted() {
