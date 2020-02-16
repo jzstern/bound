@@ -22,6 +22,7 @@ export default {
 @import "../styles/global.scss";
 
 #logo {
+  @extend %hover;
   margin-left: 20px;
   font-weight: bold;
 }
