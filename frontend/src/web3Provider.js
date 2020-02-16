@@ -12,11 +12,7 @@ let web3Fortmatic = new Web3(fm.getProvider());
 window.web3 = web3Fortmatic;
 export const web3Provider = web3Fortmatic;
 
-
 /** production
 export const fm = new Fortmatic("pk_test_F64FF8191AA41844");
 export const web3Provider = new Web3(fm.getProvider());
 **/
-export const fm = new Fortmatic("pk_test_F64FF8191AA41844");
-export const web3Provider = new Web3(fm.getProvider());
-// export const Box = require('3box');
