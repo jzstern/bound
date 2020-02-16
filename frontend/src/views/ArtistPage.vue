@@ -1,45 +1,51 @@
 <template>
   <div class="artist-page">
     <ArtistTitle :prizes-unlocked="prizesUnlocked" />
-    <div id="card-titles">
+    <!-- <div id="card-titles">
       <h3 style="width:50%; margin:0;">Ticket</h3>
       <h3 style="width:50%; margin:0; transform:translateX(-25px);">Price</h3>
-    </div>
+    </div>-->
 
     <div id="primary">
-      <div id="artist-card">
-        <img id="artist-img" :src="imageSrc" />
-        <h2>{{ artistName }} VIP Ticket</h2>
-        <ul id="offers">
-          <!-- <li :v-for="reward in rewards">{{reward.title}}</li> -->
-          <li>
-            Exclusive access to “BUBBA” behind-the-scenes videos and production
-            tutorials
-          </li>
-          <li>Receive early access to unrealeased music and videos</li>
-          <li>A chance to win an 1 on 1 production session</li>
-          <li>Two free VIP concert tickets for every year that you hold the token</li>
-          <li>Submit a monthly question to Kaytranada.</li>
-        </ul>
+      <div>
+        <h3 style="margin-left: 25px">Ticket</h3>
+        <div id="artist-card">
+          <img id="artist-img" :src="imageSrc" />
+          <h2>{{ artistName }} VIP Ticket</h2>
+          <ul id="offers">
+            <!-- <li :v-for="reward in rewards">{{reward.title}}</li> -->
+            <li>
+              Exclusive access to “BUBBA” behind-the-scenes videos and production
+              tutorials
+            </li>
+            <li>Receive early access to unrealeased music and videos</li>
+            <li>A chance to win an 1 on 1 production session</li>
+            <li>Two free VIP concert tickets for every year that you hold the token</li>
+            <li>Submit a monthly question to Kaytranada.</li>
+          </ul>
+        </div>
       </div>
 
-      <div id="curve-card">
-        <div id="graph-section">
-          <img class="graph" src="../assets/graph.svg" />
-        </div>
-
-        <div id="trade-section">
-          <h5>current value</h5>
-          <div id="price-and-token">
-            <h1>${{ tokenPriceUsd }}</h1>
-            <img id="token-number" src="../assets/tokenNumber.svg" />
+      <div>
+        <h3 style="margin-left: 25px">Price</h3>
+        <div id="curve-card">
+          <div id="graph-section">
+            <img class="graph" src="../assets/graph.svg" />
           </div>
-          <div id="trade-buttons">
-            <div @click="buy = true" class="btn" style="background-color:#398557;">
-              <p>Buy</p>
+
+          <div id="trade-section">
+            <h5>current value</h5>
+            <div id="price-and-token">
+              <h1>${{ tokenPriceUsd }}</h1>
+              <img id="token-number" src="../assets/tokenNumber.svg" />
             </div>
-            <div @click="sell = true" class="btn sell-btn" style="background-color:#da304c;">
-              <p>Sell</p>
+            <div id="trade-buttons">
+              <div @click="buy = true" class="btn" style="background-color:#398557;">
+                <p>Buy</p>
+              </div>
+              <div @click="sell = true" class="btn sell-btn" style="background-color:#da304c;">
+                <p>Sell</p>
+              </div>
             </div>
           </div>
         </div>
@@ -265,6 +271,7 @@ li {
   justify-content: center;
   width: 80%;
   margin: auto;
+  margin-top: -80px;
 }
 
 #card-titles {
