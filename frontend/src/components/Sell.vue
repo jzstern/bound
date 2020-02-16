@@ -4,15 +4,15 @@
       <div class="modal-container">
         <div class="modal-body">
           <div id="left-column" style="width: 50%; float:left">
-            <p style="font-weight:700">Token value</p>
-            <!-- <p>Artist allocation</p> -->
-            <!-- <p>Next price in curve</p> -->
+            <p>Token value</p>
+            <p>Artist allocation</p>
+            <p style="font-weight:700">You receive</p>
           </div>
 
           <div id="right-column">
-            <p style="font-weight:700">$122.45</p>
-            <!-- <p>$24.45</p> -->
-            <!-- <p>$143.89</p> -->
+            <p style>{{ tokenPriceUsd }}</p>
+            <p style>{{ artistCutUsd }}</p>
+            <p style="font-weight:700">{{ (tokenPriceUsd - artistCutUsd).toFixed(2) }}</p>
           </div>
         </div>
         <div
@@ -20,7 +20,7 @@
           class="btn"
           style="background-color:#da304c; width:100%; margin:0; margin-bottom:10px;"
         >
-          <p>Sell for 0.482343823 ETH</p>
+          <p>Sell for {{ tokenPriceEth }} ETH</p>
         </div>
         <div
           class="btn btn-cancel"
@@ -38,13 +38,30 @@
 <script>
 export default {
   name: "Sell",
+  computed: {
+    artistCutUsd() {
+      return (this.artistCutEth * this.ethPriceUsd).toFixed(2) || 0;
+    },
+    artistCutEth() {
+      return this.tokenPriceEth * 0.2;
+    },
+    ethPriceUsd() {
+      return this.$store.state.ethPrice;
+    },
+    tokenPriceEth() {
+      return this.$store.state.tokenPriceEth;
+    },
+    tokenPriceUsd() {
+      return (this.ethPriceUsd * this.tokenPriceEth).toFixed(2) || 0;
+    }
+  },
   methods: {
     sellToken() {
       web3.eth.sendTransaction({
         // From address will automatically be replaced by the address of current user
         from: "0x0000000000000000000000000000000000000000",
         to: this.contractAddress,
-        value: web3.utils.toWei(amount, "ether")
+        value: web3.utils.toWei(this.tokenPriceEth.toString(), "ether")
       });
     }
   }
@@ -83,7 +100,6 @@ export default {
 
 .modal-container {
   position: relative;
-  height: 200px;
   width: 350px;
   margin: 0px auto;
   padding: 20px 30px;

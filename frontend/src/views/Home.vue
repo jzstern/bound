@@ -5,7 +5,7 @@
         <div class="card">
           <!-- <img id="artist-img" :src="imgUrl" />
           <h2>{{ artistName }}</h2>
-          <h5>Price: {{ amount }} ETH</h5> -->
+          <h5>Price: {{ amount }} ETH</h5>-->
           Kaytranada
         </div>
       </router-link>
@@ -25,8 +25,13 @@
 </template>
 
 <script>
+import Tests from "../tests/Tests.vue";
+
 export default {
-  name: "Home"
+  name: "Home",
+  components: {
+    Tests
+  }
 };
 </script>
 
@@ -42,6 +47,7 @@ p {
 }
 
 .card {
+  @extend %hover;
   background-color: #1d1f20;
   color: white;
   padding: 1rem;
