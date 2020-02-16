@@ -25,8 +25,13 @@
 </template>
 
 <script>
+import Tests from "../tests/Tests.vue";	
+
 export default {
-  name: "Home"
+  name: "Home",
+  components: {
+  	Tests
+  }
 };
 </script>
 
