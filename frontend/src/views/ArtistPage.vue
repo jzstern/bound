@@ -1,10 +1,6 @@
 <template>
   <div class="artist-page">
     <ArtistTitle :prizes-unlocked="prizesUnlocked" />
-    <!-- <div id="card-titles">
-      <h3 style="width:50%; margin:0;">Ticket</h3>
-      <h3 style="width:50%; margin:0; transform:translateX(-25px);">Price</h3>
-    </div>-->
 
     <div id="primary">
       <div class="shrink-top">
