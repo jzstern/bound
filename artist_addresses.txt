@@ -1,0 +1,6 @@
+ganache seed:
+play donate voice undo share distance laundry phrase slush minor myth giraffe
+
+0x162A5568f4B40ea5e27D414FF79E140336eB954a - artist1
+0xA30E269ACA08C3Ad2566b98Efb9f24cE2670B72d - artist2
+0x3B6B4E1c6Dac8141B5616bFEd0fcDeb7F5978626 - artist3
