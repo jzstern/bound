@@ -8,20 +8,18 @@
 
     <div id="primary">
       <div id="artist-card">
-        <img id="artist-img" :src="imgUrl" />
+        <img id="artist-img" :src="imageSrc" />
         <h2>{{ artistName }} VIP Ticket</h2>
         <ul id="offers">
+          <!-- <li :v-for="reward in rewards">{{reward.title}}</li> -->
           <li>
             Exclusive access to “BUBBA” behind-the-scenes videos and production
             tutorials
           </li>
           <li>Receive early access to unrealeased music and videos</li>
           <li>A chance to win an 1 on 1 production session</li>
-          <li>
-            Two free VIP concert tickets for every year that you hold the token
-          </li>
+          <li>Two free VIP concert tickets for every year that you hold the token</li>
           <li>Submit a monthly question to Kaytranada.</li>
-          <!-- <li v-for="(offer, index) in offers">{{ offer.message }} - {{ index }}    </li> -->
         </ul>
       </div>
 
@@ -33,22 +31,15 @@
         <div id="trade-section">
           <h5>current value</h5>
           <div id="price-and-token">
-            <h1>$122.54</h1>
+            <h1>{{ price }} ETH</h1>
+            <!-- <h1>$122.54</h1> -->
             <img id="token-number" src="../assets/tokenNumber.svg" />
           </div>
           <div id="trade-buttons">
-            <div
-              @click="buy = true"
-              class="btn"
-              style="background-color:#398557;"
-            >
+            <div @click="buy = true" class="btn" style="background-color:#398557;">
               <p>Buy</p>
             </div>
-            <div
-              @click="sell = true"
-              class="btn sell-btn"
-              style="background-color:#da304c;"
-            >
+            <div @click="sell = true" class="btn sell-btn" style="background-color:#da304c;">
               <p>Sell</p>
             </div>
           </div>
@@ -57,12 +48,7 @@
     </div>
 
     <Prizes :prizes-unlocked="prizesUnlocked" />
-    <Buy
-      class="modal"
-      @close="buy = false"
-      @confirmed="prizesUnlocked = true"
-      v-show="buy"
-    />
+    <Buy class="modal" @close="buy = false" @confirmed="prizesUnlocked = true" v-show="buy" />
     <Sell class="modal" @close="sell = false" v-show="sell" />
   </div>
 </template>
@@ -71,6 +57,11 @@
 import store from "../store/index.js";
 import Fortmatic from "fortmatic";
 import Web3 from "web3";
+// import { web3Provider as web3 } from "../web3Provider.js";
+// import { fm as provider } from "../web3Provider.js";
+// import Box from "../web3Provider.js";
+const Box = require("3box");
+
 import Buy from "../components/Buy.vue";
 import Sell from "../components/Sell.vue";
 import Prizes from "../components/Prizes.vue";
@@ -86,20 +77,24 @@ export default {
   },
   data() {
     return {
-      artistName: "Kaytranada",
+      artistAddress: null,
+      artistName: null,
+      boxAddress: "0x2ca6aFF1D484E86f24e0a9c9D879b116c3c904C5",
       price: ".01",
       buy: false,
       sell: false,
-      contractAddress: "0xeb54D707252Ee9E26E6a4073680Bf71154Ce7Ab5",
-      imgUrl:
-        "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3.amazonaws.com%2Ffactmag-images%2Fwp-content%2Fuploads%2F2016%2F05%2F02131614%2FKaytranada_photoCarysHuws2a-970x550.jpg&f=1&nofb=1",
-      offers: [
-        {
-          message: "Dope prize #1"
-        }
-      ],
+      imageSrc: "",
+      rewards: [],
       prizesUnlocked: false
     };
+  },
+  mounted: async function() {
+    const profile = await Box.getProfile(this.boxAddress);
+    var artist = JSON.parse(profile.artists1);
+    this.artistName = artist.name;
+    this.artistAddress = artist.artistAddress;
+    this.imageSrc = artist.imageSrc;
+    this.rewards = artist.rewards;
   }
 };
 </script>

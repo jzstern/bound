@@ -2,12 +2,13 @@
   <div id="wallet" @click="connectWallet">
     <div v-if="address == 'Connect Wallet'" class="dot red"></div>
     <div v-else class="dot green"></div>
-    <p>{{ address }}</p>
+    <p>{{ trimmedAddress }}</p>
   </div>
 </template>
 
 <script>
 import { web3Provider as web3 } from "../web3Provider.js";
+import { fm as provider } from "../web3Provider.js";
 import store from "../store/index.js";
 
 export default {
@@ -15,6 +16,13 @@ export default {
   computed: {
     address() {
       return this.$store.state.user.walletAddress;
+    },
+    trimmedAddress() {
+      if (this.address == "Connect Wallet") return "Connect Wallet";
+      else {
+        let addr = this.$store.state.user.walletAddress;
+        return addr.substring(0, 4) + " - " + addr.substring(addr.length - 4);
+      }
     }
   },
   methods: {
@@ -22,6 +30,7 @@ export default {
       // TODO - allow MetaMask connection?
       if (this.address == "Connect Wallet") {
         await web3.currentProvider.enable();
+
         web3.eth.getAccounts((error, accounts) => {
           if (error) throw error;
         });
@@ -30,8 +39,14 @@ export default {
           console.log(coinbase);
           store.commit("setUserWalletAddress", coinbase);
         });
+
+        store.commit("setProvider", provider.getProvider());
       }
     }
+  },
+  // TODO - get rid of this for PROD
+  mounted() {
+    store.commit("setProvider", provider.getProvider());
   }
 };
 </script>
