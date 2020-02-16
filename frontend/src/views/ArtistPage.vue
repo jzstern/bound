@@ -132,7 +132,7 @@ export default {
     store.commit("setEthPrice", ethPrice);
 
     this.$refs.Tests.test();
-    store.commit("setTokenPriceEth", 0.57592);
+    store.commit("setTokenPriceEth", 0.5883);
   }
 };
 </script>
