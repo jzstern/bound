@@ -9,62 +9,74 @@
           />
           <!-- <h2>{{ artistName }}</h2>
           <h5>Price: {{ amount }} ETH</h5>-->
-          Kaytranada
+          <p class="artist-name">Kaytranada</p>
+          <!-- <p class="artist-token-price">$153.34</p> -->
         </div>
       </router-link>
       <div class="card">
-        <img
-          id="artist-img"
-          src="https://media.newyorker.com/photos/590973c88b51cf59fc422ca3/16:9/w_1200,h_630,c_limit/160208_r27647.jpg"
-        />Madlib
-      </div>
-      <div class="card">
-        <img id="artist-img" src="https://ichef.bbci.co.uk/images/ic/960x540/p041b0zn.jpg" />Khraungbin
+        <img id="artist-img" src="https://ichef.bbci.co.uk/images/ic/960x540/p041b0zn.jpg" />
+        <p class="artist-name">Khraungbin</p>
       </div>
       <div class="card">
         <img
           id="artist-img"
           src="http://indietronica.org/wp-content/uploads/2016/11/Joe-Hertz-1024x575.jpg"
-        />Joe Hertz
-      </div>
-      <div class="card">
-        <img
-          id="artist-img"
-          src="https://lastfm.freetls.fastly.net/i/u/ar0/62d210110f96883a691fd1109b93068d.jpg"
-        />HM Surf
+        />
+        <p class="artist-name">Joe Hertz</p>
       </div>
       <div class="card">
         <img
           id="artist-img"
           src="http://assets.nydailynews.com/polopoly_fs/1.1109050.1341595620!/img/httpImage/image.jpg_gen/derivatives/article_1200/ocean7f-1-web.jpg"
-        />Frank Ocean
+        />
+        <p class="artist-name">Frank Ocean</p>
+      </div>
+      <div class="card">
+        <img
+          id="artist-img"
+          src="https://media.newyorker.com/photos/590973c88b51cf59fc422ca3/16:9/w_1200,h_630,c_limit/160208_r27647.jpg"
+        />
+        <p class="artist-name">Madlib</p>
       </div>
       <div class="card">
         <img
           id="artist-img"
           src="https://spiritualityhealth.com/assets/images/Articles/_articleSummaryImage/PhilipGlass_CreditStevePyke.jpg"
-        />Philip Glass
+        />
+        <p class="artist-name">Philip Glass</p>
       </div>
       <div class="card">
         <img
           id="artist-img"
           src="http://www.self-titledmag.com/wp-content/uploads/2018/04/Brian-Eno-2-2-1024x684.jpeg"
-        />Brian Eno
+        />
+        <p class="artist-name">Brian Eno</p>
       </div>
       <div class="card">
-        <img id="artist-img" src="https://i1.sndcdn.com/avatars-000001254237-bhfhsf-t500x500.jpg" />Vanilla
+        <img id="artist-img" src="https://i1.sndcdn.com/avatars-000001254237-bhfhsf-t500x500.jpg" />
+        <p class="artist-name">Vanilla</p>
       </div>
       <div class="card">
         <img
           id="artist-img"
           src="https://images.sxsw.com/kIPuU7_nbeqAXfafzOZFBxG8CSU=/0x823:4912x4332/950x0/images.sxsw.com/3/31fcc915-eb7b-44dd-ad91-032b41e23818/artist-10900"
-        />Sam Gellaitry
+        />
+        <p class="artist-name">Sam Gellaitry</p>
       </div>
       <div class="card">
-        <img id="artist-img" src="https://i.ytimg.com/vi/vS4F8Yoto6A/maxresdefault.jpg" />Men I Trust
+        <img id="artist-img" src="https://i.ytimg.com/vi/vS4F8Yoto6A/maxresdefault.jpg" />
+        <p class="artist-name">Men I Trust</p>
       </div>
       <div class="card">
-        <img id="artist-img" src="https://itswide.com/wp-content/uploads/2018/07/descarga.jpeg" />Melo-Zed
+        <img id="artist-img" src="https://itswide.com/wp-content/uploads/2018/07/descarga.jpeg" />
+        <p class="artist-name">Melo-Zed</p>
+      </div>
+      <div class="card">
+        <img
+          id="artist-img"
+          src="https://lastfm.freetls.fastly.net/i/u/ar0/62d210110f96883a691fd1109b93068d.jpg"
+        />
+        <p class="artist-name">HM Surf</p>
       </div>
     </div>
   </div>
@@ -92,10 +104,6 @@ p {
   font-size: 22px;
 }
 
-// #artist-img {
-//   max-width: 250px;
-// }
-
 .card {
   @extend %hover;
   background-color: #1d1f20;
@@ -103,8 +111,21 @@ p {
   padding: 1rem;
   height: 250px;
   border-radius: 5px;
-  // max-width: 250px;
+
+  p {
+    margin-top: 15px;
+  }
 }
+
+.artist-name {
+  // text-align: left;
+}
+
+// .artist-token-price {
+//   margin-top: -24px !important;
+//   background-color: none;
+//   text-align: right;
+// }
 
 #card-grid {
   max-width: 1200px;

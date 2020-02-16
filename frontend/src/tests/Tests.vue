@@ -14,8 +14,8 @@ export default {
       let contractAddress = "0x5Eb3c104431b41f565DbC5193c58C4C75123dbeE";
       // mock userAddress
       let userAddress = "0xD8CD93BcBa6232c1D3E0441d34c2425b8A549797";
-      let contractData = await this.getData(contractAddress, userAddress);
-      this.$emit("receivedContractData", contractData);
+      // let contractData = await this.getData(contractAddress, userAddress);
+      // this.$emit("receivedContractData", contractData);
     },
     async getData(contractAddress, userAddress) {
       let contractData = {

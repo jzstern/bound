@@ -60,6 +60,7 @@ export default {
   float: right;
   padding: 15px 20px;
   border-radius: 5px;
+  background: rgba(211, 211, 211, 0.1);
   transform: translate(10px, -75px);
 }
 
