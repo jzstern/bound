@@ -70,9 +70,7 @@ import Buy from "../components/Buy.vue";
 import Sell from "../components/Sell.vue";
 import Prizes from "../components/Prizes.vue";
 import ArtistTitle from "../components/ArtistTitle.vue";
-
-const fm = new Fortmatic("pk_test_F64FF8191AA41844");
-const web3 = new Web3(fm.getProvider());
+import { web3Provider as web3 } from "../web3Provider.js";
 
 export default {
   name: "ArtistPage",
@@ -86,7 +84,7 @@ export default {
   data() {
     return {
       artistName: "Kaytranada",
-      amount: 1,
+      price: ".01",
       buy: false,
       sell: false,
       contractAddress: "0xeb54D707252Ee9E26E6a4073680Bf71154Ce7Ab5",
@@ -99,6 +97,19 @@ export default {
       ],
       prizesUnlocked: false
     };
+  },
+  methods: {
+    buy() {
+      web3.eth.sendTransaction({
+        // From address will automatically be replaced by the address of current user
+        from: "0x0000000000000000000000000000000000000000",
+        to: this.contractAddress,
+        value: web3.utils.toWei(this.price, "ether")
+      });
+    },
+    sell() {
+      alert("cashing out fam");
+    }
   }
 };
 </script>
