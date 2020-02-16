@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {
+      provider: null,
       walletAddress: "Connect Wallet"
     }
   },

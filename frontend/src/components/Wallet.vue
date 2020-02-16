@@ -8,6 +8,7 @@
 
 <script>
 import { web3Provider as web3 } from "../web3Provider.js";
+import { fm as provider } from "../web3Provider.js";
 import store from "../store/index.js";
 
 export default {
@@ -31,6 +32,9 @@ export default {
         });
       }
     }
+  },
+  mounted() {
+    store.commit("setProvider", provider.getProvider());
   }
 };
 </script>
