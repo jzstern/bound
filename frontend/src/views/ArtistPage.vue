@@ -1,13 +1,9 @@
 <template>
   <div class="artist-page">
     <ArtistTitle :prizes-unlocked="prizesUnlocked" />
-    <!-- <div id="card-titles">
-      <h3 style="width:50%; margin:0;">Ticket</h3>
-      <h3 style="width:50%; margin:0; transform:translateX(-25px);">Price</h3>
-    </div>-->
 
     <div id="primary">
-      <div>
+      <div class="shrink-top">
         <h3 style="margin-left: 25px">Ticket</h3>
         <div id="artist-card">
           <img id="artist-img" :src="imageSrc" />
@@ -29,7 +25,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="shrink-top">
         <h3 style="margin-left: 25px">Price</h3>
         <div id="curve-card">
           <div id="graph-section">
@@ -164,7 +160,7 @@ export default {
     store.commit("setEthPrice", ethPrice);
 
     this.$refs.Tests.test();
-    store.commit("setTokenPriceEth", 0.37592);
+    store.commit("setTokenPriceEth", 0.5883);
   }
 };
 </script>
@@ -208,6 +204,10 @@ ul {
 li {
   margin-bottom: 20px;
   opacity: 0.9;
+}
+
+.shrink-top {
+  margin-top: -20px;
 }
 
 #artist-page {
@@ -310,7 +310,6 @@ li {
   justify-content: center;
   width: 80%;
   margin: auto;
-  margin-top: -80px;
 }
 
 #card-titles {

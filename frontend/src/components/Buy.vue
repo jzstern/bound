@@ -49,8 +49,7 @@ export default {
   },
   data() {
     return {
-      price: ".001",
-      contractAddress: "0x0000000000000000000000000000000000000000"
+      contractAddress: "0xDFA1dE81594DeC91c5a5765A0Cd27b8ECb79e5b9"
     };
   },
   methods: {

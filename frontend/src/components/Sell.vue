@@ -20,7 +20,7 @@
           class="btn"
           style="background-color:#da304c; width:100%; margin:0; margin-bottom:10px;"
         >
-          <p>Sell for {{ tokenPriceEth }} ETH</p>
+          <p>Sell for {{ tokenPriceEth - artistCutEth }} ETH</p>
         </div>
         <div
           class="btn btn-cancel"
