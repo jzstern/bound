@@ -1,0 +1,25 @@
+<svg width="582" height="364" viewBox="0 0 582 364" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="582" height="364">
+<rect x="0.5" y="0.73645" width="581" height="362.512" fill="#C4C4C4" stroke="#1D1F20"/>
+</mask>
+<g mask="url(#mask0)">
+<path d="M-15 350.147C138.17 350.147 580 350.147 580 -10.8915" stroke="#8EAEFF" stroke-width="4"/>
+<circle cx="369" cy="294" r="6" fill="#F1F3F8" stroke="#8EAEFF" stroke-width="2"/>
+<ellipse cx="406" cy="277.198" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="439" cy="257.415" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="472" cy="233.922" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="505" cy="201.775" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="538" cy="157.264" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="571" cy="73.186" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="332" cy="308.109" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="299" cy="318" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="266" cy="325.419" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="233" cy="332.837" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="200" cy="337.783" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="167" cy="342.729" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="134" cy="345.202" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="101" cy="347.674" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="68" cy="348.911" rx="4" ry="4.94574" fill="#8EAEFF"/>
+<ellipse cx="35" cy="350.147" rx="4" ry="4.94574" fill="#8EAEFF"/>
+</g>
+</svg>

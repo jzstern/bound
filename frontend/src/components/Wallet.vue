@@ -36,6 +36,7 @@ export default {
         });
         web3.eth.getCoinbase((error, coinbase) => {
           if (error) throw error;
+          console.log(coinbase);
           store.commit("setUserWalletAddress", coinbase);
         });
 
@@ -57,7 +58,7 @@ export default {
   width: 6px;
   height: 6px;
   border-radius: 50px;
-  margin-right: 5px;
+  margin-right: 3px;
 }
 
 .green {
@@ -74,8 +75,9 @@ export default {
   height: 34px;
   background: #e3e5e8;
   border-radius: 4px;
-  margin-top: 10px;
-  margin-right: 40px;
+  // margin-top: 1px;
+  margin-right: 30px;
+  padding: 4px 8px;
 
   display: flex;
   align-items: center;
@@ -84,6 +86,7 @@ export default {
   p {
     color: #1d1f20;
     opacity: 0.6;
+    margin-left: 5px;
   }
 }
 </style>
