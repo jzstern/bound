@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    ethPrice: null,
     user: {
       provider: null,
       // walletAddress: "0xE0EC61841FCAf59c6650E5F9675345a10F9e31B9"
@@ -12,6 +13,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setEthPrice(state, price) {
+      state.ethPrice = price;
+    },
     setProvider(state, provider) {
       state.user.provider = provider;
     },

@@ -31,7 +31,7 @@
         <div id="trade-section">
           <h5>current value</h5>
           <div id="price-and-token">
-            <h1>{{ price }} ETH</h1>
+            <h1>${{ tokenPriceUsd }}</h1>
             <!-- <h1>$122.54</h1> -->
             <img id="token-number" src="../assets/tokenNumber.svg" />
           </div>
@@ -60,6 +60,8 @@ import Web3 from "web3";
 // import { web3Provider as web3 } from "../web3Provider.js";
 // import { fm as provider } from "../web3Provider.js";
 // import Box from "../web3Provider.js";
+const CoinGecko = require("coingecko-api");
+const CoinGeckoClient = new CoinGecko();
 const Box = require("3box");
 
 import Buy from "../components/Buy.vue";
@@ -75,18 +77,36 @@ export default {
     Prizes,
     ArtistTitle
   },
+  computed: {
+    ethPriceUsd() {
+      return this.$store.state.ethPrice;
+    },
+    tokenPriceUsd() {
+      return (this.ethPriceUsd * this.price).toFixed(2) || 0;
+    }
+  },
   data() {
     return {
       artistAddress: null,
       artistName: null,
       boxAddress: "0x2ca6aFF1D484E86f24e0a9c9D879b116c3c904C5",
-      price: ".01",
+      price: ".1",
       buy: false,
       sell: false,
       imageSrc: "",
       rewards: [],
       prizesUnlocked: false
     };
+  },
+  methods: {
+    getETHPrice: async function() {
+      let ethQuery = await CoinGeckoClient.simple.price({
+        ids: ["ethereum"],
+        vs_currencies: ["usd"]
+      });
+
+      return ethQuery.data.ethereum.usd;
+    }
   },
   mounted: async function() {
     const profile = await Box.getProfile(this.boxAddress);
@@ -95,6 +115,9 @@ export default {
     this.artistAddress = artist.artistAddress;
     this.imageSrc = artist.imageSrc;
     this.rewards = artist.rewards;
+
+    let ethPrice = await this.getETHPrice();
+    store.commit("setEthPrice", ethPrice);
   }
 };
 </script>
