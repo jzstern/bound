@@ -42,6 +42,7 @@ export default {
   text-align: center;
   // background-color: #f1f3f8;
   color: #2c3e50;
+  transition: 2s;
 }
 
 h3 {

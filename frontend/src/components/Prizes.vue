@@ -91,7 +91,7 @@ export default {
   color: white;
   height: 250px;
   border-radius: 10px;
-  border: 1px solid #1d1f20;
+  border: 2px solid #000;
   background: radial-gradient(
     114.92% 114.92% at 50% -14.92%,
     rgba(6, 0, 251, 0.76) 25%,

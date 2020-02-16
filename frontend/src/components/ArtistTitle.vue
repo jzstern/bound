@@ -23,7 +23,7 @@ export default {
       if (!this.prizesUnlocked) {
         return "You do not own this token";
       } else {
-        return "You own this token";
+        return "You own this token!";
       }
     }
   },
@@ -73,9 +73,10 @@ export default {
 
 .own {
   border: 1px solid rgb(38, 162, 0);
+  background-color: rgb(38, 162, 0);
   opacity: 1;
 
-  color: rgb(38, 162, 0);
+  color: white;
 }
 
 #artist-title {

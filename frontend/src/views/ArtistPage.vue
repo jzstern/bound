@@ -18,7 +18,9 @@
           </li>
           <li>Receive early access to unrealeased music and videos</li>
           <li>A chance to win an 1 on 1 production session</li>
-          <li>Two free VIP concert tickets for every year that you hold the token</li>
+          <li>
+            Two free VIP concert tickets for every year that you hold the token
+          </li>
           <li>Submit a monthly question to Kaytranada.</li>
         </ul>
       </div>
@@ -36,10 +38,18 @@
             <img id="token-number" src="../assets/tokenNumber.svg" />
           </div>
           <div id="trade-buttons">
-            <div @click="buy = true" class="btn" style="background-color:#398557;">
+            <div
+              @click="buy = true"
+              class="btn"
+              style="background-color:#398557;"
+            >
               <p>Buy</p>
             </div>
-            <div @click="sell = true" class="btn sell-btn" style="background-color:#da304c;">
+            <div
+              @click="sell = true"
+              class="btn sell-btn"
+              style="background-color:#da304c;"
+            >
               <p>Sell</p>
             </div>
           </div>
@@ -48,7 +58,12 @@
     </div>
 
     <Prizes :prizes-unlocked="prizesUnlocked" />
-    <Buy class="modal" @close="buy = false" @confirmed="prizesUnlocked = true" v-show="buy" />
+    <Buy
+      class="modal"
+      @close="buy = false"
+      @confirmed="(prizesUnlocked = true), (buy = false)"
+      v-show="buy"
+    />
     <Sell class="modal" @close="sell = false" v-show="sell" />
   </div>
 </template>
