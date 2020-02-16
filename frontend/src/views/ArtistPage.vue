@@ -52,6 +52,8 @@
       </div>
     </div>
 
+    <Tests ref="Tests" @receivedContractData="updateContract(data)" />
+
     <Prizes :prizes-unlocked="prizesUnlocked" />
     <Buy class="modal" @close="buy = false" @confirmed="prizesUnlocked = true" v-show="buy" />
     <Sell class="modal" @close="sell = false" v-show="sell" />
@@ -73,6 +75,7 @@ import Buy from "../components/Buy.vue";
 import Sell from "../components/Sell.vue";
 import Prizes from "../components/Prizes.vue";
 import ArtistTitle from "../components/ArtistTitle.vue";
+import Tests from "../tests/Tests.vue";
 
 export default {
   name: "ArtistPage",
@@ -80,7 +83,8 @@ export default {
     Buy,
     Sell,
     Prizes,
-    ArtistTitle
+    ArtistTitle,
+    Tests
   },
   computed: {
     ethPriceUsd() {
@@ -113,6 +117,9 @@ export default {
       });
 
       return ethQuery.data.ethereum.usd;
+    },
+    updateContract(data) {
+      console.log(data);
     }
   },
   mounted: async function() {
@@ -125,6 +132,8 @@ export default {
 
     let ethPrice = await this.getETHPrice();
     store.commit("setEthPrice", ethPrice);
+
+    this.$refs.Tests.test();
     store.commit("setTokenPriceEth", 0.37592);
   }
 };
