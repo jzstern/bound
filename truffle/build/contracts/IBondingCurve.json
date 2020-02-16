@@ -458,7 +458,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2020-02-15T21:24:57.027Z",
+  "updatedAt": "2020-02-16T14:54:14.890Z",
   "devdoc": {
     "methods": {
       "getContinuousBurnRefund(uint256)": {
